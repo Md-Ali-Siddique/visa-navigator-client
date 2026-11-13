@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: false;
+}
+
+@plugin "daisyui/theme" {
+  name: "visa-light";
+  default: true;
+  color-scheme: light;
+  --color-base-100: #ffffff;
+  --color-base-200: #eef3f6;
+  --color-base-300: #dce6ec;
+  --color-base-content: #0f2a43;
+  --color-primary: #0e7c86;
+  --color-primary-content: #ffffff;
+  --color-secondary: #0f2a43;
+  --color-secondary-content: #ffffff;
+  --color-accent: #e9a23b;
+  --color-accent-content: #1b1303;
+  --color-neutral: #0f2a43;
+  --color-neutral-content: #eef3f6;
+  --color-info: #2b7bb9;
+  --color-info-content: #ffffff;
+  --color-success: #2f9e6b;
+  --color-success-content: #ffffff;
+  --color-warning: #e9a23b;
+  --color-warning-content: #1b1303;
+  --color-error: #c0392b;
+  --color-error-content: #ffffff;
+  --radius-box: 0.75rem;
+  --radius-field: 0.5rem;
+}
+
+@plugin "daisyui/theme" {
+  name: "visa-dark";
+  prefersdark: true;
+  color-scheme: dark;
+  --color-base-100: #0c1b2b;
+  --color-base-200: #102338;
+  --color-base-300: #1a3350;
+  --color-base-content: #e6eef4;
+  --color-primary: #36b5bf;
+  --color-primary-content: #04222a;
+  --color-secondary: #e6eef4;
+  --color-secondary-content: #0c1b2b;
+  --color-accent: #f0b054;
+  --color-accent-content: #1b1303;
+  --color-neutral: #1a3350;
+  --color-neutral-content: #e6eef4;
+  --color-info: #5aa7dc;
+  --color-info-content: #04141f;
+  --color-success: #4cc08c;
+  --color-success-content: #04170f;
+  --color-warning: #f0b054;
+  --color-warning-content: #1b1303;
+  --color-error: #e5675a;
+  --color-error-content: #1f0805;
+  --radius-box: 0.75rem;
+  --radius-field: 0.5rem;
+}
+
+@theme {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+}
+.stub-edge {
+  border-top: 2px dashed color-mix(in oklab, var(--color-base-content) 22%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
