@@ -16,7 +16,6 @@ const MyVisaApplications = () => {
 
   useEffect(() => {
     let ignore = false;
-    setLoading(true);
 
     axiosInstance
       .get("/applications", { params: { email: user.email, country: search } })
@@ -31,7 +30,10 @@ const MyVisaApplications = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    setSearch(input.trim());
+    const term = input.trim();
+    if (term === search) return;
+    setLoading(true);
+    setSearch(term);
   };
 
   const handleCancel = async (application) => {

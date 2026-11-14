@@ -13,8 +13,6 @@ const AllVisas = () => {
 
   useEffect(() => {
     let ignore = false;
-    setLoading(true);
-    setFailed(false);
 
     axiosInstance
       .get("/visas", { params: type ? { type } : {} })
@@ -27,6 +25,12 @@ const AllVisas = () => {
     };
   }, [type]);
 
+  const handleTypeChange = (e) => {
+    setLoading(true);
+    setFailed(false);
+    setType(e.target.value);
+  };
+
   return (
     <>
     <PageHeader title="All visas" subtitle="Every visa added by travellers on Visa Navigator. Filter by type to narrow the list." />
@@ -38,7 +42,7 @@ const AllVisas = () => {
 
         <label className="form-control w-full sm:w-64">
           <span className="label-text mb-1">Filter by visa type</span>
-          <select value={type} onChange={(e) => setType(e.target.value)} className="select select-bordered w-full">
+          <select value={type} onChange={handleTypeChange} className="select select-bordered w-full">
             <option value="">All visa types</option>
             {VISA_TYPES.map((t) => (
               <option key={t} value={t}>{t}</option>
